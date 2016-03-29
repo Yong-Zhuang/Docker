@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-dev \
         python-numpy \
         python-pip \
+        python-nose\
+        python-numpy \
         python-scipy && \
     rm -rf /var/lib/apt/lists/*
 
@@ -40,6 +42,14 @@ ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
+# Install bleeding-edge Theano
+RUN pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
+# Add R to apt sources 
+RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
+# Install latest version of R 
+RUN apt-get update && apt-get install -y --force-yes r-base
+
+# Install scikit-learn, jupyter, pydotplus for caffe visualization, seaborn
 RUN pip install scikit-learn jupyter lasagne keras pydotplus seaborn
 RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.password = u'sha1:30d3f970641a:ab54d7ab6578d8543778848fe86227534109ba13'" >> ~/.jupyter/jupyter_notebook_config.py
@@ -54,4 +64,4 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 EXPOSE 8888
 CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
 
-WORKDIR /workspace
+WORKDIR /root
