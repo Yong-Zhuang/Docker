@@ -4,7 +4,7 @@ If you are using Linux and have a
 Docker daemon running,
 e.g. reachable on localhost, start a container with:
 
-$ docker run --rm -it -p 8888:8888 -v "$(pwd):/notebooks" jazz14jazz/docker
+$ docker run --rm -it -p 8888:8888 -v "$(pwd):/workspace" jazz14jazz/docker
 
 In your browser, open the URL http://localhost:8888/.
 All notebooks from your session will be saved in the current directory.
