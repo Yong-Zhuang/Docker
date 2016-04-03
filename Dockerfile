@@ -51,8 +51,8 @@ RUN apt-get update && apt-get install -y --force-yes r-base
 
 # Install scikit-learn, jupyter, pydotplus for caffe visualization, seaborn
 RUN pip install scikit-learn jupyter lasagne keras pydotplus seaborn progressbar
-RUN jupyter notebook --generate-config
-RUN echo "c.NotebookApp.password = u'sha1:30d3f970641a:ab54d7ab6578d8543778848fe86227534109ba13'" >> ~/.jupyter/jupyter_notebook_config.py
+#RUN jupyter notebook --generate-config
+#RUN echo "c.NotebookApp.password = u'sha1:30d3f970641a:ab54d7ab6578d8543778848fe86227534109ba13'" >> ~/.jupyter/jupyter_notebook_config.py
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents
 # kernel crashes.
