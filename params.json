@@ -1,0 +1,6 @@
+{
+  "name": "Dockers",
+  "tagline": "Docker images of Yong Zhuang",
+  "body": "##Running in a Docker container\r\n\r\nIf you are using Linux and have a Docker daemon running,\r\ne.g. reachable on localhost, start a container with:\r\n\r\n$ docker run --rm -it -p 8888:8888 -v \"$(pwd):/workspace\" jazz14jazz/docker\r\n\r\nIn your browser, open the URL http://localhost:8888/.\r\nAll notebooks from your session will be saved in the current directory.\r\n\r\nOn other platforms, such as Windows and OS X, that use\r\ndocker-machine with docker, a container can be started using\r\ndocker-machine. In the browser, open the URL http://ip:8888/ where ip is\r\nthe IP address returned from the command docker-machine ip <MACHINE>:\r\n\r\n$ docker-machine ip <MACHINE>\r\n\r\nFor example,\r\n\r\n$ docker-machine ip myjupytermachine\r\n192.168.99.104\r\n\r\nIn browser, open http://192.168.99.104:8888.\r\n\r\nNOTE: With the deprecated boot2docker, use the command boot2docker ip to\r\ndetermine the URL.\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
