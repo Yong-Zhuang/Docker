@@ -197,6 +197,7 @@ ENV LUA_PATH='/root/.luarocks/share/lua/5.1/?.lua;/root/.luarocks/share/lua/5.1/
 ENV LUA_CPATH='/root/torch/install/lib/?.so;'$LUA_CPATH
 
 # Install the latest versions of nn, cutorch, cunn, cuDNN bindings and iTorch
+RUN git config --global url.https://github.com/.insteadOf git://github.com/
 RUN luarocks install nn && \
 	luarocks install cutorch && \
 	luarocks install cunn && \
