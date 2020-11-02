@@ -1,13 +1,11 @@
 Running in a Docker container
 
-If you are using Linux and have a
-Docker daemon running,
+If you are using Linux and have a Docker daemon running,
 e.g. reachable on localhost, start a container with:
 
 $ docker run --rm -it -p 8888:8888 -v "$(pwd):/workspace" jazz14jazz/docker
 
-In your browser, open the URL http://localhost:8888/.
-All notebooks from your session will be saved in the current directory.
+In your browser, open the URL http://localhost:8888/.All notebooks from your session will be saved in the current directory.
 
 On other platforms, such as Windows and OS X, that use
 docker-machine with docker, a container can be started using
