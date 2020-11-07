@@ -1,5 +1,7 @@
 FROM pytorch/pytorch:1.6.0-cuda10.1-cudnn7-runtime
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
+COPY requirements.txt /tmp/
+RUN pip install -r --requirement /tmp/requirements.txt
 
 # Install and configure jupyter, set up password
 RUN pip install jupyter

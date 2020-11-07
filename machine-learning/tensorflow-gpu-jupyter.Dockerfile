@@ -1,5 +1,7 @@
 FROM tensorflow/tensorflow:2.0.0-gpu-py3-jupyter
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
+COPY requirements.txt /tmp/
+RUN pip install -r --requirement /tmp/requirements.txt
 
 # Configure jupyter, set up password
 RUN jupyter notebook --generate-config
