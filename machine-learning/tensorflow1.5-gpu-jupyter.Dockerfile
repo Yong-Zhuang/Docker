@@ -1,4 +1,5 @@
-FROM tensorflow/tensorflow:1.5.0-gpu-py3-jupyter
+FROM tensorflow/tensorflow:1.5.0-devel-gpu-py3
+
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
