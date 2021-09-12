@@ -41,11 +41,20 @@ RUN sed -ri 's/root\:\*/root\:\$1\$xampp\$5\/7SXMYAMmS68bAy94B5f\./g' /etc/shado
 # Few handy utilities which are nice to have 
 RUN apt-get -y install nano vim less --no-install-recommends
 
+# Install Ruby and other prerequisites:
+RUN apt-get install ruby-full build-essential zlib1g-dev
+RUN echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+RUN echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+RUN echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+RUN source ~/.bashrc
+RUN gem install jekyll bundler
+
 RUN apt-get clean
 VOLUME [ "/var/log/mysql/", "/var/log/apache2/" ]
 EXPOSE 3306 
 EXPOSE 22 
 EXPOSE 80
+EXPOSE 4000
 
 # write a startup script
 RUN echo '/opt/lampp/lampp start' >> /startup.sh
