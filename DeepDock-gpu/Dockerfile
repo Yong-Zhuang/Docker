@@ -1,7 +1,5 @@
 FROM nvidia/cuda:7.5-cudnn4-devel
 
-MAINTAINER Yong Zhuang <jazz14jazz@gmail.com>
-
 ARG THEANO_VERSION=rel-0.8.2
 ARG TENSORFLOW_VERSION=0.8.0
 ARG TENSORFLOW_ARCH=gpu

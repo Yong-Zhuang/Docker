@@ -1,28 +1,29 @@
-Running in a Docker container
+Sure, here's a possible README for your Dockerfiles repository:
 
-If you are using Linux and have a Docker daemon running,
-e.g. reachable on localhost, start a container with:
+# Dockerfiles
 
-$ docker run --rm -it -p 8888:8888 -v "$(pwd):/workspace" jazz14jazz/docker
+This repository contains Dockerfiles for various images used in different projects.
 
-In your browser, open the URL http://localhost:8888/.All notebooks from your session will be saved in the current directory.
+## Usage
 
-On other platforms, such as Windows and OS X, that use
-docker-machine with docker, a container can be started using
-docker-machine. In the browser, open the URL http://ip:8888/ where ip is
-the IP address returned from the command docker-machine ip <MACHINE>:
+To build an image, navigate to the folder containing the corresponding Dockerfile and run:
 
-$ docker-machine ip <MACHINE>
+```
+docker build -t <image_name> .
+```
 
-For example,
+To run a container based on an image, use the following command:
 
-$ docker-machine ip myjupytermachine
-192.168.99.104
+```
+docker run -it <image_name>
+```
 
-In browser, open http://192.168.99.104:8888.
+More Dockerfiles will be added in the future.
 
-NOTE: With the deprecated boot2docker, use the command boot2docker ip to
-determine the URL.
+## Contributing
 
+Contributions to this repository are welcome. If you have a Dockerfile you'd like to add, please create a pull request and we'll review it as soon as possible.
 
+## License
 
+This repository is licensed under the [MIT License](LICENSE).

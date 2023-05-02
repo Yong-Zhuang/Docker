@@ -1,22 +1,25 @@
-These images are intended for machine learning development. 
+Here's an improved version of the README:
 
-***Tensorflow Image***
+# Machine Learning Development Images
 
-This Tensorflow image uses /tf/workspace/ directory for your workspace, so you need to mount it.
+This repository contains Docker images intended for machine learning development.
 
-Running the image:
-docker run --runtime=nvidia  --name tf2.0 -it -v local_directory:/tf/workspace/ -p 666:8888  -p 667:6006 jazz14jazz/tutoring:tf.2.0
+## TensorFlow Image
 
-The command above will expose the jupyter-notebook server on port 666 and the tensor-board server on port 667.
-In your browser, open the URL http://localhost:666/. The initial notebook password is xian. All notebooks from your session will be saved in your local_directory. 
+This TensorFlow image uses the `/tf/workspace/` directory for your workspace, so you need to mount it. To run the image, use the following command:
 
+```
+docker run --runtime=nvidia --name container_name -it -v local_directory:/tf/workspace/ -p 666:8888 -p 667:6006 jazz14jazz/tutoring:tf.2.0
+```
 
-***Pytorch Image***
+This will expose the Jupyter Notebook server on port 666 and the TensorBoard server on port 667. To access the notebook server, open the URL http://localhost:666/ in your browser. The initial notebook password is `xian`. All notebooks from your session will be saved in your `local_directory`.
 
-This Pytorch image uses /workspace/ directory for your workspace, so you need to mount it.
+## PyTorch Image
 
-Running the image:
-docker run --runtime=nvidia  --name torch1.6 -it -v local_directory:/workspace/ -p 555:8888  jazz14jazz/tutoring:torch.1.6
+This PyTorch image uses the `/workspace/` directory for your workspace, so you need to mount it. To run the image, use the following command:
 
-The command above will expose the jupyter-notebook server on port 555.
-In your browser, open the URL http://localhost:555/. The initial notebook password is xian. All notebooks from your session will be saved in your local_directory.
+```
+docker run --runtime=nvidia --name container_name -it -v local_directory:/workspace/ -p 555:8888 jazz14jazz/tutoring:torch.1.6
+```
+
+This will expose the Jupyter Notebook server on port 555. To access the notebook server, open the URL http://localhost:555/ in your browser. The initial notebook password is `xian`. All notebooks from your session will be saved in your `local_directory`.
